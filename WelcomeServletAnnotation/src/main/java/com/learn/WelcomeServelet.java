@@ -16,8 +16,8 @@ public class WelcomeServelet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		System.out.println("This is Sample");
-		//super.init();
+		System.out.println("Inside init()");
+		super.init();
 	}
 
 	/**
@@ -33,8 +33,15 @@ public class WelcomeServelet extends HttpServlet {
 		
 		String var3 = request.getParameter("var3");
 		
-		response.getWriter().append("welcome" + var1 + var2 + var3).close();
+		response.getWriter().append("welcome " + var1 + " " + var2 + " " + var3).close();
 		
+	}
+	
+	@Override
+	public void destroy() {
+		System.out.println("Inside destroy()");
+		// TODO Auto-generated method stub
+		super.destroy();	
 	}
 
 }
